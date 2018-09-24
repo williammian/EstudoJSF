@@ -9,6 +9,7 @@ import javax.annotation.PreDestroy;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.event.ActionEvent;
+import javax.faces.event.ValueChangeEvent;
 
 import com.wm.cursojsf2.dominio.Produto;
 
@@ -20,13 +21,16 @@ import com.wm.cursojsf2.dominio.Produto;
 //@RequestScoped //é o padrão
 public class GestaoProdutosBean implements Serializable{
 
+	private String nomePesquisa;
 	private List<Produto> produtos;
+	private List<Produto> produtosFiltrados;
 	private Produto produto;
 	
 	private Produto produtoSelecionado;
 	
 	public GestaoProdutosBean() {
 		this.produtos = new ArrayList<Produto>();
+		this.produtosFiltrados = new ArrayList<Produto>();
 		this.produto = new Produto();
 	}
 	
@@ -41,6 +45,20 @@ public class GestaoProdutosBean implements Serializable{
 	public void verificarInclusao(ActionEvent event) {
 		if ("".equals(this.produto.getFabricante())) {
 			this.produto.setFabricante("Sem fabricante");
+		}
+	}
+	
+	public void nomePesquisaAlterado(ValueChangeEvent event) {
+		System.out.println("Valor atual: " + this.nomePesquisa);
+		System.out.println("Novo valor: " + event.getNewValue());
+		
+		this.produtosFiltrados.clear();
+		
+		for (Produto produto : this.produtos) {
+			if (produto.getNome() != null && produto.getNome().toLowerCase()
+					.startsWith(event.getNewValue().toString().toLowerCase())) {
+				this.produtosFiltrados.add(produto);
+			}
 		}
 	}
 	
@@ -77,6 +95,18 @@ public class GestaoProdutosBean implements Serializable{
 
 	public void setProdutoSelecionado(Produto produtoSelecionado) {
 		this.produtoSelecionado = produtoSelecionado;
+	}
+	
+	public String getNomePesquisa() {
+		return nomePesquisa;
+	}
+
+	public void setNomePesquisa(String nomePesquisa) {
+		this.nomePesquisa = nomePesquisa;
+	}
+
+	public List<Produto> getProdutosFiltrados() {
+		return produtosFiltrados;
 	}
 	
 }

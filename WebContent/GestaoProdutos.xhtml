@@ -32,10 +32,18 @@
 				<f:actionListener binding="#{registroCliqueBotaoListener}"/>
 			</h:commandButton>
 		</h:form>
+		
+		<br/>
+		<h:form>
+			Pesquisa por nome:
+			<h:inputText value="#{gestaoProdutosBean.nomePesquisa}" 
+				valueChangeListener="#{gestaoProdutosBean.nomePesquisaAlterado}"
+				onchange="submit()"/>
+		</h:form>
 
 		<h:form>
 			<ol>
-				<ui:repeat var="item" value="#{gestaoProdutosBean.produtos}">
+				<ui:repeat var="item" value="#{gestaoProdutosBean.produtosFiltrados}">
 					<li>
 						#{item.nome} - #{item.fabricante} - #{item.categoria}
 						
