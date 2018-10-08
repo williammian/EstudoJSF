@@ -17,19 +17,27 @@
 				<h:outputLabel value="Código do produto:"/>
 				<h:panelGroup>
 					<h:inputText id="codigoProduto" value="#{estoqueBean.itemEstoque.codigoProduto}"
-							label="Código do produto">
+							label="Código do produto" required="true">
 						<f:converter converterId="javax.faces.Integer"/>
 					</h:inputText>
 					<h:message for="codigoProduto" showSummary="true" showDetail="false"/>
 				</h:panelGroup>
 				
 				<h:outputLabel value="Descrição:"/>
-				<h:inputText id="descricao" value="#{estoqueBean.itemEstoque.descricao}"/>
+				<h:panelGroup>
+					<h:inputText id="descricao" value="#{estoqueBean.itemEstoque.descricao}"
+							label="Descrição" required="true">
+						<f:validateLength minimum="5"/>
+					</h:inputText>
+					<h:message for="descricao" showSummary="true" showDetail="false"/>
+				</h:panelGroup>
 				
 				<h:outputLabel value="Quantidade:"/>
 				<h:panelGroup>
 					<h:inputText id="quantidade" value="#{estoqueBean.itemEstoque.quantidade}"
-							label="Quantidade"/>
+							label="Quantidade" required="true">
+						<f:validateLongRange minimum="0" maximum="999" />
+					</h:inputText>
 					<h:message for="quantidade" showSummary="true" showDetail="false"/>
 				</h:panelGroup>
 				
@@ -38,6 +46,7 @@
 					<h:inputText id="valorUnitario" value="#{estoqueBean.itemEstoque.valorUnitario}"
 							label="Valor unitário">
 						<f:convertNumber minFractionDigits="2" locale="pt_BR"/>
+						<f:validateDoubleRange minimum="0" />
 					</h:inputText>
 					<h:message for="valorUnitario" showSummary="true" showDetail="false"/>
 				</h:panelGroup>
