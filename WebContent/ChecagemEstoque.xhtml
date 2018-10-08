@@ -11,10 +11,13 @@
 	<h:body>
 		<h:form id="frm">
 			
+			<h:messages showSummary="false" showDetail="true"/>
+			
 			<h:panelGrid columns="2">
 				<h:outputLabel value="Código do produto:"/>
 				<h:panelGroup>
-					<h:inputText id="codigoProduto" value="#{estoqueBean.itemEstoque.codigoProduto}">
+					<h:inputText id="codigoProduto" value="#{estoqueBean.itemEstoque.codigoProduto}"
+							label="Código do produto">
 						<f:converter converterId="javax.faces.Integer"/>
 					</h:inputText>
 					<h:message for="codigoProduto" showSummary="true" showDetail="false"/>
@@ -25,13 +28,15 @@
 				
 				<h:outputLabel value="Quantidade:"/>
 				<h:panelGroup>
-					<h:inputText id="quantidade" value="#{estoqueBean.itemEstoque.quantidade}"/>
+					<h:inputText id="quantidade" value="#{estoqueBean.itemEstoque.quantidade}"
+							label="Quantidade"/>
 					<h:message for="quantidade" showSummary="true" showDetail="false"/>
 				</h:panelGroup>
 				
 				<h:outputLabel value="Valor unitário:"/>
 				<h:panelGroup>
-					<h:inputText id="valorUnitario" value="#{estoqueBean.itemEstoque.valorUnitario}">
+					<h:inputText id="valorUnitario" value="#{estoqueBean.itemEstoque.valorUnitario}"
+							label="Valor unitário">
 						<f:convertNumber minFractionDigits="2" locale="pt_BR"/>
 					</h:inputText>
 					<h:message for="valorUnitario" showSummary="true" showDetail="false"/>
@@ -39,7 +44,8 @@
 				
 				<h:outputLabel value="Data da checagem:"/>
 				<h:panelGroup>
-					<h:inputText id="dataChecagem" value="#{estoqueBean.itemEstoque.dataChecagem}">
+					<h:inputText id="dataChecagem" value="#{estoqueBean.itemEstoque.dataChecagem}"
+							label="Data da checagem">
 						<f:convertDateTime pattern="dd/MM/yyyy"/>
 					</h:inputText>
 					<h:message for="dataChecagem" showSummary="true" showDetail="false"/>

@@ -11,5 +11,9 @@
 		<managed-bean-class>com.wm.cursojsf2.OlaMundoBean</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
+	
+	<application>
+		<message-bundle>com.wm.cursojsf2.resources.Messages</message-bundle>
+	</application>
 
 </faces-config>
