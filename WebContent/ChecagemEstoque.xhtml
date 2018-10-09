@@ -26,8 +26,10 @@
 				<h:outputLabel value="Descrição:"/>
 				<h:panelGroup>
 					<h:inputText id="descricao" value="#{estoqueBean.itemEstoque.descricao}"
-							label="Descrição" required="true">
-						<f:validateLength minimum="5"/>
+							label="Descrição" required="true" 
+							requiredMessage="Por favor, informe uma descrição."
+							validatorMessage="Descrição deve ser informada com pelo menos 5 caracteres.">
+						<f:validateLength minimum="5" />
 					</h:inputText>
 					<h:message for="descricao" showSummary="true" showDetail="false"/>
 				</h:panelGroup>
@@ -61,7 +63,11 @@
 				</h:panelGroup>
 				
 				<h:outputLabel/>
-				<h:commandButton value="Incluir" action="#{estoqueBean.incluir}"/>
+				<h:panelGroup>
+					<h:commandButton value="Incluir" action="#{estoqueBean.incluir}" />
+					<h:commandButton value="Limpar" actionListener="#{estoqueBean.limpar}"
+						immediate="true"/>
+				</h:panelGroup>
 			</h:panelGrid>
 			
 			<h:dataTable var="item" value="#{estoqueBean.itensEstoque}" border="1">

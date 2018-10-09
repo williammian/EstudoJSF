@@ -17,6 +17,10 @@ public class EstoqueBean {
 		this.itensEstoque.add(this.itemEstoque);
 		this.itemEstoque = new ItemEstoque();
 	}
+	
+	public void limpar() {
+		this.itensEstoque.clear();
+	}
 
 	public ItemEstoque getItemEstoque() {
 		return itemEstoque;
