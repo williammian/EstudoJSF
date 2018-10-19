@@ -42,6 +42,14 @@ public class GestaoProdutosBean implements Serializable{
 		}
 	}
 	
+	public String obterAjuda2() {
+		if (this.produtos.isEmpty()) {
+			return "sem-produtos";
+		} else {
+			return "com-produtos";
+		}
+	}
+	
 	public void verificarInclusao(ActionEvent event) {
 		if ("".equals(this.produto.getFabricante())) {
 			this.produto.setFabricante("Sem fabricante");

@@ -15,5 +15,27 @@
 	<application>
 		<message-bundle>com.wm.cursojsf2.resources.Messages</message-bundle>
 	</application>
+	
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>inicio</from-outcome>
+			<to-view-id>/GestaoProdutos2.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/GestaoProdutos2.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>com-produtos</from-outcome>
+			<to-view-id>/AjudaGestaoProdutosTelefone2.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>sem-produtos</from-outcome>
+			<to-view-id>/AjudaGestaoProdutos2.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
+	</navigation-rule>
 
 </faces-config>
