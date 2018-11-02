@@ -37,5 +37,13 @@
 			<redirect/>
 		</navigation-case>
 	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/Ola.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>nomes</from-outcome>
+			<to-view-id>/Nomes.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 
 </faces-config>
